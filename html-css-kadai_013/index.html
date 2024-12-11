@@ -1,74 +1,157 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Organic Cafe</title>
-    <meta charset="UTF-8" />
-    <meta name="description" content="自家焙煎のコーヒーがお家で楽しめるOrganic Cafe"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- ヘッダー -->
-    <header>
-      <!-- ロゴ -->
-      <a href="index.html" id="logo"><img src="images/logo.png" alt="トップページに戻る"/></a>
+/* PC、スマホ共通スタイル */
+body {
+  font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", Meiryo, Arial,
+    sans-serif;
+}
 
-      <!-- PC用ナビゲーション -->
-      <nav id="nav-pc">
-        <a href="index.html#concept">CONCEPT</a>
-        <a href="index.html#product">PRODUCT</a>
-        <a href="index.html#contact">CONTACT</a>
-      </nav>
+p {
+  font-size: 15px;
+}
+
+#main-visual>img {
+  width: 100%;
+}
+
+/*================
+PC用のスタイル 
+=================*/
+@media screen and (min-width: 768px) {
+  /* 横幅設定 */
+  body {
+    max-width: 1080px;
+    min-width: 960px;
+    margin: 0 auto 0 auto;
+  }
+
+  /* ヘッダー */
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ナビゲーションのレイアウト */
+  #nav-pc {
+    /* ここ、右にならないよ。特に、コード変えちゃいけないなら猶更無理だよ */
+    text-align: right;
+    font-size: 14px;
+    padding-top: 15px;
+  }
+
+  /* ナビゲーションのリンクの装飾設定 */
+  #nav-pc>a {
+    text-decoration: none;
+    margin-left: 20px;
+  }
+
+  #nav-pc>a:link {
+    color: #0d0d0d;
+  }
+
+  #nav-pc>a:visited {
+    color: #0d0d0d;
+  }
+
+  #nav-pc>a:hover {
+    color: #0d0d0d;
+    text-decoration: underline;
+  }
+
+  #nav-pc>a:active {
+    color: #0d0d0d;
+  }
+
+    /* 追記 */
+    #menu-sp{
+        display: none;
+    }
+
+    #nav-sp{
+        display: none;
+    }
+  }
 
 
-      <!-- スマホ用メニューボタン -->
-      <!-- <button id="menu-sp" onclick="document.getElementById('nav-sp').style.display = 'block'"> -->
-        <!-- <img src="images/button-menu.png" alt="ナビゲーションを開く"> -->
-      <!-- </button> -->
 
-      <botton onclick="document.getElementById('nav-sp').style.display = 'block'">
-       <img id="menu-sp" src="images/button-menu.png" alt="ナビゲーションを開く">
-      </botton>
+  /*スマホスタイル */
+@media screen and (max-width: 768px) {
+
+    body{
+        min-width:375px;
+        margin:0;
+    }
+
+    #nav-pc{
+        display:none;
+    }
+
+    #menu-sp{
+        float:right;
+        padding:0;
+    }
+
+    #nav-sp{
+        background-color:#ce933e;
+        /* position: relative;はどこに？ */
+        position:absolute;
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        display:none;
+        z-index:100;
+    }
+
+    #nav-sp ul{
+        padding-left:0;
+    }
+
+    #nav-sp li{
+        list-style:none;
+    }
+
+    #close{
+        position:absolute;
+        top:20px;
+        right:20px;
+    }
+
+    #logo-sp{
+        margin:80px 0px 30px 20px;
+    }
+
+    #nav-sp a{
+        display:block;
+    }
+
+    #nav-sp a:link{
+        color: #ffffff;
+    }
+
+    #nav-sp a:visited{
+        color: #ffffff;
+    }
+
+    #nav-sp a:hover	{
+        color: #ffffff;
+        text-decoration:underline;
+    }
+
+    #nav-sp a:active{
+        color: #ffffff;
+    }
+
+    #nav-sp .menu{
+        text-decoration:none;
+        display:block;
+        margin:0 20px;
+        height:44px;
+        font-size:16px;
+        background-image:url("images/arrow.png");
+        background-repeat:no-repeat;
+        background-position:right top;
+    }
 
 
 
-      <nav id="nav-sp">
-        <botton id="close" onclick="document.getElementById('nav-sp').style.display = 'none'">
-         <img src="images/button-close.png" alt="ナビゲーションを閉じる">
-        </botton>
 
-        <ul>
-        <li></li><a id="logo-sp" href="index.html" onclick="document.getElementById('nav-sp').style.display = 'none'">
-            <img src="images/logo-sp.png" alt="トップページに戻る">
-        </a></li>
-
-        <li><a class="menu" href="index.html#concept" onclick="document.getElementById('nav-sp').style.display = 'none'">
-            CONCEPT
-        </a></li>
-
-        <li><a class="menu" href="index.html#product" onclick="document.getElementById('nav-sp').style.display = 'none'">
-            PRODUCT
-        </a></li>
-
-        <li><a class="menu" href="index.html#contact" onclick="document.getElementById('nav-sp').style.display = 'none'">
-            CONTACT
-        </a></li>
-        </ul>
-      </nav>
-
-    </header>
-
-    <main>
-      <article>
-        <!-- メインビジュアル -->
-        <section id="main-visual">
-          <div id="main-message">
-            <h1>Organic Cafe</h1>
-            <p>自家焙煎コーヒーが買えるお店</p>
-          </div>
-          <img src="images/main-image.jpg" alt="コーヒーをハンドドリップで淹れる画像"/>
-        </section>
-      </article>
-    </main>
-  </body>
-</html>
+}
